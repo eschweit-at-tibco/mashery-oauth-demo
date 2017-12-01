@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "ejs": "^1.0.0",
+    "ejs": "^2.5.5",
     "express": "^4.15.3",
     "express-session": "^1.7.6",
     "json-stringify": "^1.0.0",
