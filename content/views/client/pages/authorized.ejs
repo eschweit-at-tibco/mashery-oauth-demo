@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title><%= client_name %> Authorised</title>
+    <% include ../partials/head %>
+  </head>
+
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    
+    <div class="container" role="main">
+      <div class="jumbotron">
+        <h1>Access authorised</h1>
+        <p><%= client_name %> has been called back upon successful OAuth2 Authorisation to access your private resource.</p>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Information provided by Authorisation Server</h3>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <li>code: <%= code %></li>
+            <li>state: <%= state %></li>
+          </ul>
+          <p>This application verifies that the state matches the one it provided to the server, so as to avoid cross-site attacks.</p>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Information our application will provide to get the final token</h3>
+        </div>
+        <div class="panel-body">
+          <form action="<%= token_url %>" method="POST">
+
+            <div class="field">
+             <div class="field_label">code</div>
+             <div class="field_input"><input format="text" name="code" value="<%= code %>" readonly /></div>
+           </div>
+
+           <div class="field">
+             <div class="field_label">client_id</div>
+             <div class="field_input"><input format="text" name="client_id" value="<%= client_id %>" readonly /></div>
+           </div>
+
+          <div class="field">
+             <div class="field_label">redirect_uri</div>
+             <div class="field_input"><input format="text" name="redirect_uri" value="<%= redirect_uri %>" readonly /></div>
+          </div>
+
+          <div class="field">
+             <div class="field_label">service_key</div>
+             <div class="field_input"><input format="text" name="service_key" value="<%= service_key %>" readonly /></div>
+          <div>
+
+          <div class="field">
+            <button>Grant Access</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

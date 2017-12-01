@@ -1,0 +1,56 @@
+<!-- views/server/pages/login.ejs>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= server_name %></title>
+    <% include ../partials/head %>
+  </head>
+
+  <body class="container">
+
+    <header>
+      <% include ../partials/header %>
+    </header>
+
+    <div class="container theme-showcase" role="main">
+      <div class="jumbotron">
+        <h1>OAuth2 Autorisation</h1>
+        <p>Login to confirm granting <%= client_name %> authorisation to access your protected resource.</p>
+ 
+        <form method="POST" action="<%= login_url %>">
+          <div class="field">
+            <div class="field_label">Login</div>
+            <div class="field_input">
+              <input type="text" name="login" value=""/>
+            </div>
+            <div class="field_comment">The authorisation server needs your credentials to confirm.</div>
+          </div>
+
+          <div class="field">
+            <div class="field_label">Password</div>
+            <div class="field_input">
+              <input type="password" name="password" value=""/>
+            </div>
+            <div class="field_comment">Using a password, but some other authentication mechanism could be used.</div>
+          </div>
+
+          <input type="hidden" name="client_id" value="<%= client_id %>" />
+          <input type="hidden" name="service_key" value="<%= service_key %>" />
+          <input type="hidden" name="redirect_uri" value="<%= redirect_uri %>" />
+          <input type="hidden" name="state" value="<%= state %>" />
+
+          <div class="button">
+            <button>Confirm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>
+
+

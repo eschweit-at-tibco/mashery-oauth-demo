@@ -1,0 +1,34 @@
+{
+  "client": {
+    "client_id": "<enter client_id here>",
+    "auth_url": "http://mydoma.in/server/oauth2",
+    "token_url": "https://mydoma.in/server/oauth2/token",
+    "service_key": "<enter service_key here>",
+    "client_name": "Client App",
+    "port": 8080
+  },
+
+  "server": {
+    "mashery": {
+      "api_key": "<enter Mashery API v2/v3 key>",
+      "api_secret": "<enter Mashery Key>",
+      "api_URL": "https://api.mashery.com/v2/json-rpc/<enter your Mashery area-number>"
+    },
+    "server_name": "Server, Inc.",
+    "port": 8081,
+    "auth_url": "/server/oauth2",
+    "login_url": "/server/login",
+    "token_url": "/server/oauth2/token"
+  },
+
+  "services": {
+    "6fc5kvtkgbjjwx5p86dr7c57": {
+      "label": "Customer Profile Details",
+      "scopes": {
+        "email": "Access to email details",
+        "address": "Access to address details", 
+        "phone": "Access to phone details"
+      }
+    }
+  }
+}

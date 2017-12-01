@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= client_name %></title>
+    <% include ../partials/head %>
+  </head>
+
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+
+    <div class="container theme-showcase" role="main">
+      <div class="jumbotron">
+        <h1>Request access to the private resource</h1>
+        <p><%= client_name %> will be using OAuth2 to get access to the private resource served by the API.</p>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Information provided by <%= client_name %> to the Authorization Server</h3>
+        </div>
+        <div class="panel-body">
+
+          <form method="POST" action="<%= auth_url %>">
+      
+            <div class="field">
+              <div class="field_label">client_id</div>
+              <div class="field_input"><input type="text" name="client_id" value="<%= client_id %>" readonly /></div>
+              <div class="field_comment">REQUIRED.  This is the identification of the application making the request. Mashery does validate that against API keys valid for the target API.</div>
+            </div>
+
+            <div class="field">
+              <div class="field_label">grant_type</div>
+              <div class="field_input">
+                <input type="text" name="grant_type" value="authorization_code" readonly />
+              </div>
+              <div class="field_comment">REQUIRED.  This is one of the four grants supported by OAuth2. Mashery supports all of them, but we only demonstrate the authorisation code grant.</div>
+            </div>
+
+            <div class="field">
+              <div class="field_label">response_type</div>
+              <div class="field_input">
+                <input type="text" name="response_type" value="code" readonly />
+              </div>
+              <div class="field_comment">REQUIRED.  Denotes the kind of credential the authorisation server will return (code vs. token). This value must be code when using the autorisation code grant.</div>
+            </div>
+
+            <div class="field">
+              <div class="field_label">redirect_uri</div>
+              <div class="field_input">
+                <input type="text" name="redirect_uri" value="<%= redirect_uri %>" readonly />
+              </div>
+              <div class="field_comment">OPTIONAL.  The URI where authentication responses can be sent and received by the requesting app. In this case, it is part of the same app as the authentication server for practical purposes.</div>
+            </div>
+
+            <div class="field">
+              <div class="field_label">scope</div>
+              <div class="field_input">
+                <input type="text" name="scope" value="<%= scope %>" readonly />
+              </div>
+              <div class="field_comment">OPTIONAL.  This is scope of the access request depicted as a series of tokens separated by spaces.</div>
+            </div> 
+
+            <div class="field">
+              <div class="field_label">state</div>
+              <div class="field_input">
+                <input type="text" name="state" value="<%= state %>" readonly />
+              </div>
+              <div class="field_comment">RECOMMENDED.  This is an opaque value used by the client to maintain the state between the request and callback. A randomly generated unique value is typically used for preventing cross-site request forgery attacks. The state is also used to encode information about the user's state in the application before the authentication request occurred, such as the page or view they were on.</div>
+            </div> 
+
+            <div class="field">
+              <div class="field_label">service_key</div>
+              <div class="field_input">
+                <input type="text" name="service_key" value="<%= service_key %>" readonly />
+              </div>
+              <div class="field_comment">MANDATORY -- MASHERY SPECIFIC.  This is the unique ID of the target Mashery-exposed service. The clientId must be matching, i.e. there must be an api key issued against that app.</div>
+            </div>
+
+            <div class="field">
+              <button>Sign-in</button>
+            </div>
+
+          </form>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div> <!-- main -->
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>
+
