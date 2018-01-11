@@ -1,6 +1,7 @@
 {
   "client": {
     "client_id": "<enter client_id here>",
+    "client_secret": "<enter client_secret here>",
     "auth_url": "http://mydoma.in/server/oauth2",
     "token_url": "https://mydoma.in/server/oauth2/token",
     "service_key": "<enter service_key here>",
