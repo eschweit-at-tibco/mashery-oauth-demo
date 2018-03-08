@@ -14,7 +14,7 @@ var app = express();
 mv2api.setConfiguration({
   serviceKey: 'nil',
   clientId: 'nil',
-  clientSecret: 'nil',
+  clientSecret: config.client.client_secret,
   apiKey: config.server.mashery.api_key,
   apiSecret: config.server.mashery.api_secret,
   masheryApiUrl: config.server.mashery.api_URL
@@ -33,7 +33,6 @@ app.get('/server', function(req, res) {
 app.post(config.server.auth_url, function(req, res) {
   var conf = mv2api.getConfiguration();
   conf.clientId = req.body.client_id;
-  conf.serviceKey = req.body.service_key;
   mv2api.setConfiguration(conf);
   
   mv2api.fetchApplication(req.body.redirect_uri)
