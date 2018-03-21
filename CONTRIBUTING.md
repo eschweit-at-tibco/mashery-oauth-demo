@@ -21,7 +21,8 @@ This project accepts contributions via Github pull requests.
 - Make commits.
 - Make sure your commit messages are in the proper format (see below).
 - Push your changes to a topic branch in your fork of the repository.
-- Submit a pull request to mashery/wordpress-plugin.
+- Submit a pull request to eschweit-at-tibco/mashery-oauth-demo
+.
 
 ### Format of the Commit Message
 
